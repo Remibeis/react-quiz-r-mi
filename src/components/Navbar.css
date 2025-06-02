@@ -1,0 +1,103 @@
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@font-face {
+font-family: 'PornQuizFont';
+src: url('../fonts/SexyBeachy.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+
+
+.navbar {
+    display: flex;                         
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #fcfcfc, #ff1bbb);
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    animation: slideDown 0.8s ease-out;
+    height: 80px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav-title {
+    font-size: 62px;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: 'PornQuizFont', sans-serif;
+    margin-left: 800px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar a:active {
+    transform: scale(0.95);
+}
+
+
+
+
+
+
