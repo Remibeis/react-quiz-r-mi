@@ -49,16 +49,14 @@ font-style: normal;
     padding: 0;
     line-height: 1;
     font-family: 'PornQuizFont', sans-serif;
-    margin-left: 800px;
+    margin-left: 780px;
 }
 
 .navbar-links {
     display: flex;
     align-items: center;
-    list-style: none;
+
     gap: 40px;
-    margin: 0;
-    padding: 0;
 }
 
 .navbar a {

@@ -1,5 +1,135 @@
-h1{
-    margin-left: 1vh;
-color: rgb(9, 0, 17);
+@font-face {
+font-family: 'Title';
+src: url('../fonts/Mod.otf') format('truetype');
+font-weight: normal;
+font-style: normal;
 }
+
+.accueil-container {
+text-align: center;
+}
+
+.carousel-title {
+text-align: center;
+font-family: 'Title', sans-serif;
+font-size: 2.5rem;
+margin: 2rem auto;
+background: linear-gradient(135deg, #fcfcfc, #ff1bbb);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
+}
+
+.layout-horizontal {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 7rem;
+margin-top: 3rem;
+flex-wrap: wrap;
+}
+
+.quiz-card {
+width: 300px;
+height: 250px;
+border-radius: 40px;
+padding: 3rem;
+background: linear-gradient(135deg, #ffffff, #ffc0cb);
+color: #333;
+text-align: center;
+text-decoration: none;
+font-weight: bold;
+box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.quiz-card:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6);
+}
+
+.carousel-container {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 400px;
+max-width: 50%;
+overflow: hidden;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+background-color: #111;
+}
+
+.carousel-image {
+width: 100%;
+height: 100%;
+object-fit: contain;
+background-color: #000;
+border-radius: 20px;
+transition: opacity 1s ease-in-out;
+}
+
+.arrow {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-size: 3rem;
+padding: 1rem 1.2rem;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+color: white;
+z-index: 1;
+background: linear-gradient(135deg, #ff69b4, #ffffff);
+box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.arrow:hover {
+transform: translateY(-50%) scale(1.1);
+box-shadow: 0 6px 20px rgba(255, 105, 180, 0.7);
+}
+
+.arrow.left {
+left: 10px;
+}
+
+.arrow.right {
+right: 10px;
+}
+
+@media (max-width: 768px) {
+.layout-horizontal {
+    flex-direction: column;
+}
+
+.carousel-container {
+    height: 250px;
+    max-width: 90%;
+}
+
+.carousel-title {
+    font-size: 2rem;
+}
+
+.arrow {
+    font-size: 2.2rem;
+    padding: 0.6rem 0.8rem;
+}
+
+.quiz-card {
+    width: 90%;
+    height: auto;
+}
+}
+
+
+
+
 
