@@ -77,14 +77,45 @@ function Quiz1() {
     }, 1000);
   };
 
-  if (showResult) {
-    return (
-      <div className="quiz-container">
-        <h2>Quiz terminé !</h2>
-        <p>Score : {score} / {questions.length}</p>
-      </div>
-    );
-  }
+if (showResult) {
+  const [name, setName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSaveScore = () => {
+    const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+    leaderboard.push({ name, score });
+    leaderboard.sort((a, b) => b.score - a.score);
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="quiz-container">
+      <h2>Quiz terminé !</h2>
+      <p>Score : {score} / {questions.length}</p>
+
+      {!submitted ? (
+        <div>
+          <input
+            type="text"
+            placeholder="Entre ton pseudo"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="name-input"
+          />
+          <button onClick={handleSaveScore} disabled={!name}>
+            Enregistrer mon score
+          </button>
+        </div>
+      ) : (
+        <div>
+          <p>Score enregistré !</p>
+          <a href="/leaderboard">Voir le classement</a>
+        </div>
+      )}
+    </div>
+  );
+}
 
   return (
     <div className="quiz-container">
