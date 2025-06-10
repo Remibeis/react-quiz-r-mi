@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Quiz1.css';
 
-const questions = [ // + d'autres à rajouter
+const questions = [
   {
     question: "Qui est cette actrice ?",
     image: "src/assets/lily.jpg",
@@ -41,6 +41,8 @@ function Quiz1() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [timeLeft, setTimeLeft] = useState(10);
+  const [name, setName] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     if (selectedOption || showResult) return;
@@ -51,7 +53,7 @@ function Quiz1() {
     }
 
     const timer = setTimeout(() => {
-      setTimeLeft(timeLeft - 1);
+      setTimeLeft((prev) => prev - 1);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -77,10 +79,6 @@ function Quiz1() {
     }, 1000);
   };
 
-if (showResult) {
-  const [name, setName] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
   const handleSaveScore = () => {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
     leaderboard.push({ name, score });
@@ -89,39 +87,44 @@ if (showResult) {
     setSubmitted(true);
   };
 
-  return (
-    <div className="quiz-container">
-      <h2>Quiz terminé !</h2>
-      <p>Score : {score} / {questions.length}</p>
+  if (showResult) {
+    return (
+      <div className="quiz-container">
+        <h2>Quiz terminé !</h2>
+        <p>Score : {score} / {questions.length}</p>
 
-      {!submitted ? (
-        <div>
-          <input
-            type="text"
-            placeholder="Entre ton pseudo"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="name-input"
-          />
-          <button onClick={handleSaveScore} disabled={!name}>
-            Enregistrer mon score
-          </button>
-        </div>
-      ) : (
-        <div>
-          <p>Score enregistré !</p>
-          <a href="/leaderboard">Voir le classement</a>
-        </div>
-      )}
-    </div>
-  );
-}
+        {!submitted ? (
+          <div>
+            <input
+              type="text"
+              placeholder="Entre ton pseudo"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="name-input"
+            />
+            <button onClick={handleSaveScore} disabled={!name}>
+              Enregistrer mon score
+            </button>
+          </div>
+        ) : (
+          <div>
+            <p>Score enregistré !</p>
+            <a href="/leaderboard">Voir le classement</a>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="quiz-container">
       <h2>{questions[currentQuestion].question}</h2>
       <div className="timer">⏱️ Temps restant : {timeLeft}s</div>
-      <img src={questions[currentQuestion].image} alt="question visuelle" className="quiz-image" />
+      <img
+        src={questions[currentQuestion].image}
+        alt="question visuelle"
+        className="quiz-image"
+      />
       <div className="quiz-options">
         {questions[currentQuestion].options.map((option, index) => (
           <button
@@ -131,8 +134,8 @@ if (showResult) {
                 ? option === questions[currentQuestion].answer
                   ? 'correct'
                   : option === selectedOption
-                    ? 'incorrect'
-                    : ''
+                  ? 'incorrect'
+                  : ''
                 : ''
             }
             onClick={() => handleAnswer(option)}

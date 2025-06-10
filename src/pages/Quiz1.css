@@ -66,3 +66,20 @@
   font-weight: bold;
   color: #ffd700;
 }
+
+.name-input {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  outline: none;
+  width: 80%;
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+}
+
+.quiz-container button {
+  margin-top: 10px;
+}
