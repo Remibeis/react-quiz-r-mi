@@ -1,10 +1,8 @@
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar.jsx';
+import Navbar from './Components/Navbar';
 import Accueil from './pages/Accueil';
 import Profile from './pages/Profile';
 import Contact from './pages/Contact';
-import './App.css'
 import Quiz1 from './pages/Quiz1';
 import Quiz2 from './pages/Quiz2.jsx';
 
