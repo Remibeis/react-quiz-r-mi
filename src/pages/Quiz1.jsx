@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Quiz1.css';
 
-const questions = [
+const questions = [ // + d'autres à rajouter
   {
     question: "Qui est cette actrice ?",
     image: "src/assets/lily.jpg",
