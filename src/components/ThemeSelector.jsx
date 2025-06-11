@@ -8,9 +8,9 @@ function ThemeSelector() {
     <div className="theme-selector">
       <label>Thème : </label>
       <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-        <option value="default">Default</option>
-        <option value="cyberpunk">Cyberpunk</option>
-        <option value="dark">Dark</option>
+        <option value="PornQuiz">PornQuiz</option>
+        <option value="CyberpornQuiz">CyberpornQuiz</option>
+        <option value="DarkQuiz">DarkQuiz</option>
       </select>
     </div>
   );

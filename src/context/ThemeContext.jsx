@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from 'react';
 
-export const ThemeContext = createContext();
+const ThemeContext = createContext();
 
-export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('default');
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('PornQuiz');
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');
@@ -13,6 +13,7 @@ export function ThemeProvider({ children }) {
   }, []);
 
   useEffect(() => {
+    console.log("🎨 Thème actif :", theme);
     document.body.className = '';
     document.body.classList.add(`theme-${theme}`);
     localStorage.setItem('theme', theme);
@@ -23,4 +24,6 @@ export function ThemeProvider({ children }) {
       {children}
     </ThemeContext.Provider>
   );
-}
+};
+
+export { ThemeContext, ThemeProvider };
