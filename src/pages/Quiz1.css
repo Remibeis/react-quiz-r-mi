@@ -2,10 +2,10 @@
 .quiz-container {
   max-width: 600px;
   margin: 40px auto;
-  background-color: #1e1e1e;
+  background-color: transparent;
   padding: 30px;
   border-radius: 16px;
-  color: white;
+  color: inherit;
   box-shadow: 0 4px 15px rgba(255, 0, 150, 0.3);
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
