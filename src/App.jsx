@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Quiz1 from './pages/Quiz1';
 import Quiz2 from './pages/Quiz2.jsx';
 import Leaderboard from './pages/leaderboard.jsx';
+import LevelSelect from './pages/LevelSelect';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/choix-niveau" element={<LevelSelect />} />
       </Routes>
     </div>
   );

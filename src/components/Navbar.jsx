@@ -12,7 +12,7 @@ return (
 
     <ul className="navbar-links">
         <li><Link to="/">Accueil</Link></li>
-        <li><Link to="/profile">Profil</Link></li>
+        <li><Link to="/leaderboard">Classement</Link></li>
         <li><Link to="/contact">Contact</Link></li>
     </ul>
     </nav>

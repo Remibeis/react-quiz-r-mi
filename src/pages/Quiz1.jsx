@@ -1,4 +1,6 @@
+
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Quiz1.css';
 
 const questions = [
@@ -35,12 +37,21 @@ const questions = [
 ];
 
 function Quiz1() {
+  const location = useLocation();
+  const level = location.state?.level || 'medium';
+
+  const timeSettings = {
+    easy: 15,
+    medium: 10,
+    hard: 5
+  };
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(timeSettings[level]);
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -72,7 +83,7 @@ function Quiz1() {
         setCurrentQuestion(next);
         setSelectedOption(null);
         setIsCorrect(null);
-        setTimeLeft(10);
+        setTimeLeft(timeSettings[level]);
       } else {
         setShowResult(true);
       }
@@ -85,6 +96,17 @@ function Quiz1() {
     leaderboard.sort((a, b) => b.score - a.score);
     localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
     setSubmitted(true);
+  };
+
+  const handleReplay = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setIsCorrect(null);
+    setTimeLeft(timeSettings[level]);
+    setName('');
+    setSubmitted(false);
   };
 
   if (showResult) {
@@ -112,6 +134,8 @@ function Quiz1() {
             <a href="/leaderboard">Voir le classement</a>
           </div>
         )}
+
+        <button onClick={handleReplay}>Rejouer</button>
       </div>
     );
   }
