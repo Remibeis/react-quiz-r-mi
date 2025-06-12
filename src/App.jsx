@@ -8,6 +8,7 @@ import Quiz2 from './pages/Quiz2.jsx';
 import Leaderboard from './pages/leaderboard.jsx';
 import LevelSelect from './pages/LevelSelect';
 
+
 function App() {
   return (
     <div>

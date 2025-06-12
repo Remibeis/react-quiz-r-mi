@@ -33,8 +33,8 @@ return (
 
     <div className="layout-horizontal">
         <Link to="/choix-niveau" className="quiz-card">
-        <h3>Quiz Mia</h3>
-        <p>Mia KHALIFAA</p>
+        <h3>Quiz Solo</h3>
+        <p>Good Luck</p>
         </Link>
 
         <div className="carousel-container">
@@ -48,8 +48,8 @@ return (
         </div>
 
         <Link to="/quiz2" className="quiz-card">
-        <h3>Quiz Johnny</h3>
-        <p>GROS CHIIBRE</p>
+        <h3>Quiz Duo</h3>
+        <p>Good Luck</p>
         </Link>
     </div>
     </div>
