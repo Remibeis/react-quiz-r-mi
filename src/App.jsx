@@ -10,7 +10,7 @@ import LevelSelect from './pages/LevelSelect';
 
 function App() {
   return (
-    <div>
+    <div className="app-wrapper">
       <Navbar />
       <Routes>
         <Route path="/quiz1" element={<Quiz1 />} />

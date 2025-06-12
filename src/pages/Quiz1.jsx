@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Quiz1.css';
 
-const questions = [
+const rawQuestions = [
   {
     question: "Qui est cette actrice ?",
     image: "src/assets/lily.jpg",
@@ -18,6 +17,30 @@ const questions = [
   },
   {
     question: "Qui est cette actrice ?",
+    image: "src/assets/jameliz.jpg",
+    options: ["Lela Star", "Esperanza Gomez", "Jameliz Benitez", "Reena Sky"],
+    answer: "Jameliz Benitez"
+  },
+  {
+    question: "Qui est cette actrice ?",
+    image: "src/assets/skybri.jpg",
+    options: ["Channel Preston", "Sky Bri", "Alexis Crystal", "Alexis Texas"],
+    answer: "Sky Bri"
+  },
+  {
+    question: "Qui est cette actrice ?",
+    image: "src/assets/sophie.jpg",
+    options: ["Sophie Rain", "Angela White", "Cherry Kiss", "Britney Amber"],
+    answer: "Sophie Rain"
+  },
+  {
+    question: "Qui est cet acteur ?",
+    image: "src/assets/adlaurent.jpg",
+    options: ["AD Moisset", "AD Laurent", "Au DD", "Dédé"],
+    answer: "AD Laurent"
+  },
+  {
+    question: "Qui est cette actrice ?",
     image: "src/assets/BonnieForPQUIZ.jpg",
     options: ["Angela White", "Dani Daniels", "Brandi Love", "Bonnie Blue"],
     answer: "Bonnie Blue"
@@ -29,12 +52,28 @@ const questions = [
     answer: "Mia Khalifa"
   },
   {
+    question: "Qui est cette acteur ?",
+    image: "src/assets/jonnhyFORPQUIZ.jpg",
+    options: ["Manuel Ferrara", "Johnny Sins", "Rocco Siffredi", "Alex Adams"],
+    answer: "Johnny Sins"
+  },
+  {
     question: "Qui est cette actrice ?",
     image: "src/assets/eva.jpg",
     options: ["Abella Danger", "Jenna Haze", "Asa Akira", "Eva Elfie"],
     answer: "Eva Elfie"
   }
 ];
+
+// Mélangeur générique (Fisher-Yates)
+const shuffleArray = (array) => {
+  const copy = [...array];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};
 
 function Quiz1() {
   const location = useLocation();
@@ -46,6 +85,7 @@ function Quiz1() {
     hard: 5
   };
 
+  const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -54,6 +94,14 @@ function Quiz1() {
   const [timeLeft, setTimeLeft] = useState(timeSettings[level]);
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    const shuffled = shuffleArray(rawQuestions).map((q) => ({
+      ...q,
+      shuffledOptions: shuffleArray(q.options)
+    }));
+    setShuffledQuestions(shuffled);
+  }, []);
 
   useEffect(() => {
     if (selectedOption || showResult) return;
@@ -71,7 +119,7 @@ function Quiz1() {
   }, [timeLeft, selectedOption, showResult]);
 
   const handleAnswer = (option) => {
-    const correct = option === questions[currentQuestion].answer;
+    const correct = option === shuffledQuestions[currentQuestion].answer;
     if (correct) setScore(score + 1);
 
     setSelectedOption(option);
@@ -79,7 +127,7 @@ function Quiz1() {
 
     setTimeout(() => {
       const next = currentQuestion + 1;
-      if (next < questions.length) {
+      if (next < shuffledQuestions.length) {
         setCurrentQuestion(next);
         setSelectedOption(null);
         setIsCorrect(null);
@@ -99,6 +147,12 @@ function Quiz1() {
   };
 
   const handleReplay = () => {
+    const reshuffled = shuffleArray(rawQuestions).map((q) => ({
+      ...q,
+      shuffledOptions: shuffleArray(q.options)
+    }));
+
+    setShuffledQuestions(reshuffled);
     setCurrentQuestion(0);
     setScore(0);
     setShowResult(false);
@@ -109,11 +163,13 @@ function Quiz1() {
     setSubmitted(false);
   };
 
+  if (shuffledQuestions.length === 0) return <div>Chargement du quiz...</div>;
+
   if (showResult) {
     return (
       <div className="quiz-container">
         <h2>Quiz terminé !</h2>
-        <p>Score : {score} / {questions.length}</p>
+        <p>Score : {score} / {shuffledQuestions.length}</p>
 
         {!submitted ? (
           <div>
@@ -140,22 +196,24 @@ function Quiz1() {
     );
   }
 
+  const current = shuffledQuestions[currentQuestion];
+
   return (
     <div className="quiz-container">
-      <h2>{questions[currentQuestion].question}</h2>
+      <h2>{current.question}</h2>
       <div className="timer">⏱️ Temps restant : {timeLeft}s</div>
       <img
-        src={questions[currentQuestion].image}
+        src={current.image}
         alt="question visuelle"
         className="quiz-image"
       />
       <div className="quiz-options">
-        {questions[currentQuestion].options.map((option, index) => (
+        {current.shuffledOptions.map((option, index) => (
           <button
             key={index}
             className={
               selectedOption
-                ? option === questions[currentQuestion].answer
+                ? option === current.answer
                   ? 'correct'
                   : option === selectedOption
                   ? 'incorrect'

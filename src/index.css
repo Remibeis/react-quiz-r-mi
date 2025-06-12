@@ -3,36 +3,38 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #fff;
+  color: #111;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Anim smooth entre les thèmes */
+body {
+  transition: background-color 0.6s ease, color 0.6s ease, background-image 0.6s ease;
+}
+
+/* Style généraux */
+a {
+  font-weight: 500;
+  color: #e91e63;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #ad1457;
 }
 
 button {
@@ -42,51 +44,69 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #fce4ec;
+  color: #880e4f;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ec407a;
+  background-color: #f8bbd0;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/*Thèmes perso*/
+/* Thème par défaut : PornQuiz */
 body.theme-PornQuiz {
-  background-color: #1e1e1e;
-  color: white;
+  background-color: #fff0f6;
+  color: #880e4f;
 }
 
+.navbar,
+.theme-selector {
+  background: linear-gradient(90deg, #ff80ab, #ff4081);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.theme-selector select {
+  padding: 5px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  margin-left: 8px;
+}
+
+/* CyberpornQuiz : vibes néon */
 body.theme-CyberpornQuiz {
   background-color: #0f0c29;
   background-image: linear-gradient(315deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
   color: #ff00f7;
 }
 
+/* DarkQuiz : sobre mais classe */
 body.theme-DarkQuiz {
-  background-color: #000;
-  color: #ccc;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
-.theme-selector {
-  margin: 10px auto;
-  text-align: center;
-  font-weight: bold;
-  font-size: 14px;
+/* Responsive et container */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
+
+h1, h2, h3 {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+/* Tu peux ajouter une fonte spéciale si tu veux ici avec @import */
