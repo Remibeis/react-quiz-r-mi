@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
-import './ThemeSelector.css';
+
 
 
 function ThemeSelector() {
