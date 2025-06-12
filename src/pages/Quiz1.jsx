@@ -86,7 +86,6 @@ const endFunFacts = [
   "🎂 Les gâteaux d’anniversaire sont statistiquement l’objet le plus photographié au monde.",
   "🛸 Il existe une loi en France interdisant d’appeler un cochon “Napoléon”.",
   "🧠 Le cerveau humain consomme 20% de l'énergie corporelle au repos.",
-  "🦐 Le cœur d’une crevette est situé dans sa tête.",
   "🦑 Un poulpe a trois cœurs et du sang bleu.",
   "📝 Le mot le plus long en français est 'intergouvernementalisations'."
 ];
@@ -160,7 +159,7 @@ function Quiz1() {
       } else {
         setShowResult(true);
       }
-    }, 1000);
+    }, 3000);
   };
 
   const handleSaveScore = () => {
