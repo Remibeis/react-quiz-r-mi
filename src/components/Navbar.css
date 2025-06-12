@@ -11,10 +11,10 @@
 }
 
 @font-face {
-  font-family: 'PornQuizFont';
-  src: url('../fonts/SexyBeachy.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+font-family: 'PornQuizFont';
+src: url('../fonts/SexyBeachy.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
 }
 
 .navbar {
@@ -98,26 +98,26 @@
 }
 
 .theme-selector {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: black;
-  background-color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+display: flex;
+align-items: center;
+font-size: 14px;
+color: black;
+background-color: white;
+padding: 5px 10px;
+border-radius: 8px;
+border: 1px solid #ccc;
 }
 
 .theme-selector label {
-  margin-right: 8px;
-  font-weight: bold;
+margin-right: 8px;
+font-weight: bold;
 }
 
 .theme-selector select {
-  padding: 4px 8px;
-  border: none;
-  background: transparent;
-  font-weight: bold;
-  cursor: pointer;
-  outline: none;
+padding: 4px 8px;
+border: none;
+background: transparent;
+font-weight: bold;
+cursor: pointer;
+outline: none;
 }
