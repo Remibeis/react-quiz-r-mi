@@ -1,3 +1,4 @@
+
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -10,16 +11,14 @@
 }
 
 @font-face {
-font-family: 'PornQuizFont';
-src: url('../fonts/SexyBeachy.ttf') format('truetype');
-font-weight: normal;
-font-style: normal;
+  font-family: 'PornQuizFont';
+  src: url('../fonts/SexyBeachy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
 .navbar {
-    display: flex;                         
+    display: flex;
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(135deg, #fcfcfc, #ff1bbb);
@@ -49,13 +48,11 @@ font-style: normal;
     padding: 0;
     line-height: 1;
     font-family: 'PornQuizFont', sans-serif;
-    margin-left: 780px;
 }
 
 .navbar-links {
     display: flex;
     align-items: center;
-
     gap: 40px;
 }
 
@@ -94,8 +91,33 @@ font-style: normal;
     transform: scale(0.95);
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.theme-selector {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 
+.theme-selector label {
+  margin-right: 8px;
+  font-weight: bold;
+}
 
-
-
+.theme-selector select {
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}

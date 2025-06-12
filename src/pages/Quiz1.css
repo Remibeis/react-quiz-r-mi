@@ -1,10 +1,11 @@
+
 .quiz-container {
   max-width: 600px;
   margin: 40px auto;
-  background-color: #1e1e1e;
+  background-color: transparent;
   padding: 30px;
   border-radius: 16px;
-  color: white;
+  color: inherit;
   box-shadow: 0 4px 15px rgba(255, 0, 150, 0.3);
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
@@ -65,4 +66,21 @@
   font-size: 18px;
   font-weight: bold;
   color: #ffd700;
+}
+
+.name-input {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  outline: none;
+  width: 80%;
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+}
+
+.quiz-container button {
+  margin-top: 10px;
 }

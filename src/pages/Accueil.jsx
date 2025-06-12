@@ -32,7 +32,7 @@ return (
     <h1 className="carousel-title">Bienvenue sur le quiz de vos stars préférées !</h1>
 
     <div className="layout-horizontal">
-        <Link to="/quiz1" className="quiz-card">
+        <Link to="/choix-niveau" className="quiz-card">
         <h3>Quiz Mia</h3>
         <p>Mia KHALIFAA</p>
         </Link>

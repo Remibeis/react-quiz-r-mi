@@ -1,0 +1,27 @@
+.quiz-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 150, 0.3);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.quiz-container ol {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.quiz-container li {
+  background-color: #292929;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(255, 0, 150, 0.1);
+  font-weight: bold;
+  color: #ffd700;
+}
