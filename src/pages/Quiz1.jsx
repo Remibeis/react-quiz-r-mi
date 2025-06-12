@@ -149,18 +149,19 @@ function Quiz1() {
     setSelectedOption(option);
     setIsCorrect(correct);
 
-    setTimeout(() => {
-      const next = currentQuestion + 1;
-      if (next < shuffledQuestions.length) {
-        setCurrentQuestion(next);
-        setSelectedOption(null);
-        setIsCorrect(null);
-        setTimeLeft(timeSettings[level]);
-      } else {
-        setShowResult(true);
-      }
-    }, 3000);
+setTimeout(() => {
+  const next = currentQuestion + 1;
+  if (next < shuffledQuestions.length) {
+    setCurrentQuestion(next);
+    setSelectedOption(null);
+    setIsCorrect(null);
+    setTimeLeft(timeSettings[level]);
+  } else {
+    setShowResult(true);
+  }
+}, correct ? 3000 : 1000);
   };
+
 
   const handleSaveScore = () => {
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
