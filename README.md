@@ -1,26 +1,12 @@
-# 🍑 PornQuiz
+# React + Vite
 
-Un quiz pour tester tes connaissances en stars du X.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🎮 Fonctionnalités
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- ✅ Questions aléatoires à chaque partie
-- ✅ Réponses mélangées à chaque fois
-- ✅ Choix du niveau de difficulté (temps de réponse)
-- ✅ Thèmes visuels personnalisables (Dark, Cyber, Porn)
-- ✅ Fun facts affichés après chaque bonne réponse
-- ✅ Fun fact insolite à la fin du quiz
-- ✅ Leaderboard local (stocké en `localStorage`)
+## Expanding the ESLint configuration
 
----
-
-## 🚀 Lancer le projet en local
-
-Il faut d'abord cloner le projet, ça peut se faire via git clone ou directement par l'URL dans VSCode
-
-```bash
-cd pornquiz
-npm install # Au cas où npm n'est pas installé (Il faut aussi node.js)
-npm run dev # Et là ça va lancer le projet complet, il reste plus qu'à prendre le local host et tout est bon
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
